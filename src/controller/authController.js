@@ -50,7 +50,7 @@ export const registration = async (req, res) => {
 export const login = async (req, res) => {
   // destructuring email and password.
 
-  let { email, password } = req.body;
+  const { email, password } = req.body;
 
   try {
     if (!email || !password) {

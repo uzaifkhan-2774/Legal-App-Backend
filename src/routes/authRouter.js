@@ -8,7 +8,7 @@ const router = express.Router();
 // first api for registration of users.
 
 
-router.post("/registraion", registration)
+router.post("/registration", registration)
 
 // Api for login .
 

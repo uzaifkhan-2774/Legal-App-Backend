@@ -17,7 +17,7 @@ const ClientCaseShema = new mongoose.Schema(
       required: true,
     },
     caseDate: {
-      type: Number,
+      type: String,
       required: true,
     },
     proofFile: [
