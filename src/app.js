@@ -1,4 +1,6 @@
 import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
 import authRounter from "./routes/authRouter.js";
 import adminRouther from "./routes/adminRouter.js";
 import lawyerRouter from "./routes/lawyerRouter.js";
@@ -6,6 +8,10 @@ import clientRouter from "./routes/clientRouter.js";
 
 const app = express();
 
+dotenv.config();
+
+// Adds headers: Access-Control-Allow-Origin: *
+ app.use(cors());
 
 // built-in middleware.
 app.use(express.json());
