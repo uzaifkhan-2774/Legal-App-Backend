@@ -79,6 +79,7 @@ let user  = await User.findById(confirmLawyer.UserId)
 
      await confirmLawyer.save();    // save is the function of mongoose which save the changes in the mongodb collections's document 
      
+     //setting the mailSender options for sending email.
      const to = user.email;
      const subject = `Your Status is ${Status}`;
      const text =   `congratulations your status is ${Status} now, thank you`;
@@ -144,7 +145,8 @@ let user  = await User.findById(confirmLawyer.UserId)
 
 </body>
 </html>`;
-
+   
+ //so we are sending the email from here to the user.
      await Mailsender(to, subject, text, htmlTemplate);
 
      res.status(200).json({
