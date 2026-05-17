@@ -95,7 +95,7 @@ export const login = async (req, res) => {
     let isMatch = await bcrypt.compare(password, existingUser.password);
 
     if (!isMatch) {
-      return res.status(400).json({
+      return res.status(404).json({
         message: "please enter correct password..",
       });
     }
@@ -104,7 +104,7 @@ export const login = async (req, res) => {
 
     // console.log(genToken);
 
-    res.status(302).json({
+    res.status(200).json({
       message: "Loged in successfully.",
       token: token(existingUser?._id, existingUser?.name),
       result: {
@@ -113,6 +113,8 @@ export const login = async (req, res) => {
         email: existingUser?.email,
         role: existingUser?.role,
       },
+      success : true
+    
     });
   } catch (error) {
     res.status(500).json({ message: `${error} server error...` });
